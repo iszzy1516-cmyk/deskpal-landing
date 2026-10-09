@@ -56,10 +56,7 @@ export function UseCases() {
                 <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
                   {/* Text side */}
                   <div className={cn(flip && 'lg:order-2')}>
-                    <span className="font-label text-xs font-semibold uppercase tracking-[0.18em] text-teal">
-                      {String(i + 1).padStart(2, '0')} · {c.label}
-                    </span>
-                    <h3 className="mt-4 font-display text-3xl font-medium leading-[1.12] tracking-[-0.015em] text-ink sm:text-4xl">
+                    <h3 className="font-display text-3xl font-medium leading-[1.12] tracking-[-0.015em] text-ink sm:text-4xl">
                       {c.headline}
                     </h3>
                     <ul className="mt-6 flex flex-col gap-3.5">
