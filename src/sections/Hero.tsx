@@ -19,15 +19,6 @@ export function Hero() {
       <div className="flex items-center px-6 pb-16 pt-32 sm:px-10 lg:px-16 lg:pb-24 lg:pt-40 xl:pl-[max(4rem,calc((100vw-1440px)/2+3rem))]">
         <div className="max-w-xl">
           <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3.5 py-1.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-amber" />
-              <span className="font-label text-[11px] font-semibold uppercase tracking-[0.16em] text-mist">
-                Chatbot-as-a-service for small business
-              </span>
-            </div>
-          </Reveal>
-
-          <Reveal delay={90}>
             <h1 className="mt-7 font-display text-[3.4rem] font-medium leading-[1.02] tracking-[-0.025em] text-ink sm:text-7xl lg:text-[5.1rem]">
               Your documents, on{' '}
               <em className="font-medium italic text-amber">duty.</em>

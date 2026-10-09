@@ -20,6 +20,7 @@ export function TypingChat({ items }: { items: DemoQA[] }) {
   const [active, setActive] = useState<number | null>(null)
   const [phase, setPhase] = useState<Phase>('idle')
   const [typed, setTyped] = useState('')
+  const [feedback, setFeedback] = useState<null | 'up' | 'down'>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
   const timers = useRef<number[]>([])
 
@@ -39,6 +40,7 @@ export function TypingChat({ items }: { items: DemoQA[] }) {
     clearTimers()
     setActive(i)
     setTyped('')
+    setFeedback(null)
     setPhase('asked')
     timers.current.push(window.setTimeout(() => setPhase('thinking'), 450))
     timers.current.push(
@@ -150,18 +152,37 @@ export function TypingChat({ items }: { items: DemoQA[] }) {
                 >
                   <button
                     aria-label="Helpful"
-                    className="rounded-md p-1.5 text-mist transition-colors hover:bg-teal-tint hover:text-teal-deep"
+                    onClick={() => setFeedback(feedback === 'up' ? null : 'up')}
+                    className={cn(
+                      'rounded-md p-1.5 transition-all duration-200 hover:scale-110 active:scale-95',
+                      feedback === 'up'
+                        ? 'bg-teal text-white'
+                        : 'text-mist hover:bg-teal-tint hover:text-teal-deep',
+                    )}
                   >
-                    <ThumbsUp className="h-3.5 w-3.5" />
+                    <ThumbsUp className="h-3.5 w-3.5" fill={feedback === 'up' ? 'currentColor' : 'none'} />
                   </button>
                   <button
                     aria-label="Not helpful"
-                    className="rounded-md p-1.5 text-mist transition-colors hover:bg-amber-tint hover:text-amber-deep"
+                    onClick={() => setFeedback(feedback === 'down' ? null : 'down')}
+                    className={cn(
+                      'rounded-md p-1.5 transition-all duration-200 hover:scale-110 active:scale-95',
+                      feedback === 'down'
+                        ? 'bg-amber text-white'
+                        : 'text-mist hover:bg-amber-tint hover:text-amber-deep',
+                    )}
                   >
-                    <ThumbsDown className="h-3.5 w-3.5" />
+                    <ThumbsDown className="h-3.5 w-3.5" fill={feedback === 'down' ? 'currentColor' : 'none'} />
                   </button>
-                  <span className="ml-2 font-label text-[10px] tracking-wide text-mist/70">
-                    Cited, never invented
+                  <span
+                    className={cn(
+                      'ml-2 font-label text-[10px] tracking-wide transition-colors duration-300',
+                      feedback ? 'text-teal' : 'text-mist/70',
+                    )}
+                  >
+                    {feedback === 'up' && 'Thanks — glad it helped'}
+                    {feedback === 'down' && 'Noted — this helps us improve'}
+                    {!feedback && 'Cited, never invented'}
                   </span>
                 </div>
               </div>

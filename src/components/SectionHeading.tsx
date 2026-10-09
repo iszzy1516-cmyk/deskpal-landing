@@ -15,8 +15,6 @@ type SectionHeadingProps = {
 
 /** Numbered eyebrow + Fraunces headline, the editorial rhythm of the page. */
 export function SectionHeading({
-  index,
-  eyebrow,
   title,
   sub,
   align = 'left',
@@ -25,24 +23,6 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <Reveal className={cn(align === 'center' && 'text-center', className)}>
-      <div className={cn('flex items-center gap-3', align === 'center' && 'justify-center')}>
-        <span
-          className={cn(
-            'flex h-7 w-7 items-center justify-center rounded-full font-label text-[11px] font-semibold tracking-wide',
-            dark ? 'bg-white/10 text-teal-bright' : 'bg-teal-tint text-teal-deep',
-          )}
-        >
-          {index}
-        </span>
-        <span
-          className={cn(
-            'font-label text-xs font-semibold uppercase tracking-[0.18em]',
-            dark ? 'text-teal-bright' : 'text-teal',
-          )}
-        >
-          {eyebrow}
-        </span>
-      </div>
       <h2
         className={cn(
           'mt-5 font-display text-4xl font-medium leading-[1.08] tracking-[-0.02em] sm:text-5xl lg:text-[3.4rem]',
