@@ -23,7 +23,7 @@ export function FinalCta() {
         <Reveal delay={300}>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="#top"
+              href={`${import.meta.env.BASE_URL}get-started`}
               className="group flex items-center gap-2 rounded-xl bg-amber px-8 py-4 text-[15.5px] font-semibold text-white shadow-[0_12px_32px_-12px_rgba(206,122,18,0.75)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-amber-deep"
             >
               Get started free

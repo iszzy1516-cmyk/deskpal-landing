@@ -2,6 +2,11 @@ import { ArrowUpRight, Check } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
 import { cn } from '@/lib/utils'
+import imgSupport from '@/assets/usecase-support.jpg'
+import imgPresales from '@/assets/usecase-presales.jpg'
+import imgInternal from '@/assets/usecase-internal.jpg'
+
+const CASE_IMAGES = [imgSupport, imgPresales, imgInternal]
 
 const CASES = [
   {
@@ -71,8 +76,14 @@ export function UseCases() {
                     </ul>
                   </div>
 
-                  {/* Visual side — stylized vignette card */}
+                  {/* Visual side — business photo + stylized vignette card */}
                   <div className={cn(flip && 'lg:order-1')}>
+                    <img
+                      src={CASE_IMAGES[i]}
+                      alt={c.label}
+                      loading="lazy"
+                      className="mb-4 h-44 w-full rounded-2xl border border-line object-cover sm:h-52"
+                    />
                     <div className="relative overflow-hidden rounded-2xl border border-line bg-paper p-7 sm:p-9">
                       <div
                         className="pointer-events-none absolute inset-0"

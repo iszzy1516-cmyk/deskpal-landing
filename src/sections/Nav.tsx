@@ -52,7 +52,7 @@ export function Nav() {
 
         <div className="ml-auto hidden items-center gap-3 lg:flex">
           <a
-            href="#pricing"
+            href={`${import.meta.env.BASE_URL}signin`}
             className={cn(
               'rounded-xl px-4 py-2.5 text-[14px] font-semibold transition-colors',
               scrolled ? 'text-ink-soft hover:text-teal-deep' : 'text-paper/90 hover:text-white',
@@ -61,7 +61,7 @@ export function Nav() {
             Sign in
           </a>
           <a
-            href="#cta"
+            href={`${import.meta.env.BASE_URL}get-started`}
             className={cn(
               'rounded-xl px-5 py-2.5 text-[14px] font-semibold transition-all duration-200 hover:-translate-y-0.5',
               scrolled
@@ -102,13 +102,13 @@ export function Nav() {
           ))}
           <div className="mt-2 flex gap-3 border-t border-line pt-4">
             <a
-              href="#pricing"
+              href={`${import.meta.env.BASE_URL}signin`}
               className="flex-1 rounded-xl border border-line px-4 py-3 text-center text-[14px] font-semibold text-ink"
             >
               Sign in
             </a>
             <a
-              href="#cta"
+              href={`${import.meta.env.BASE_URL}get-started`}
               onClick={() => setOpen(false)}
               className="flex-1 rounded-xl bg-teal px-4 py-3 text-center text-[14px] font-semibold text-white"
             >

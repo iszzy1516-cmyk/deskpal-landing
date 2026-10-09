@@ -8,6 +8,7 @@ import { Security } from '@/sections/Security'
 import { Pricing } from '@/sections/Pricing'
 import { FinalCta } from '@/sections/FinalCta'
 import { Footer } from '@/sections/Footer'
+import { AuthPage } from '@/pages/AuthPage'
 
 function Home() {
   return (
@@ -31,6 +32,8 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/signin" element={<AuthPage mode="signin" />} />
+      <Route path="/get-started" element={<AuthPage mode="signup" />} />
     </Routes>
   )
 }
